@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 18:41:17 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2022/04/08 14:13:52 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2022/04/08 14:26:44 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,10 @@ char	*ft_itoa(int nb)
 	str = malloc(sizeof(char) * i + 1);
 	if (!str)
 		return (NULL);
-	str[i--] = '\0';
+	str[i] = '\0';
+	i--;
 	if (n == 0)
-	{
 		str[0] = 48;
-	}
 	if (n < 0)
 	{
 		str[0] = '-';
