@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 18:41:17 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2022/04/07 21:57:38 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2022/04/08 14:13:52 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,11 +64,3 @@ char	*ft_itoa(int nb)
 	str = ft_putnum(str, n, i);
 	return (str);
 }
-
-/*#include<stdio.h>
-
-int main(void)
-{
-	printf("%s\n", ft_itoa(123156));
-	return (0);
-}*/
