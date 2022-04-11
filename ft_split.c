@@ -6,41 +6,43 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 13:01:46 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2022/04/07 12:49:15 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2022/04/08 18:28:59 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libft.h"
 
-static int	ft_count(char const *src, char sep, int *i)
+static int	ft_count(char const *src, char sep)
 {
-	int	word;
+	int	count;
 
-	*i = 0;
-	word = 0;
+	count = 0;
+	if (!src)
+		return (0);
 	while (*src)
 	{
 		while (*src == sep)
 			src++;
 		if (*src != sep && *src)
-			word++;
+			count++;
 		while (*src != sep && *src)
 			src++;
 	}
-	return (word);
+	return (count);
 }
 
 char	**ft_split(char const *src, char sep)
 {
-	char		**new;
+	char		**splitd;
 	int			i;
-	const int	words = ft_count(src, sep, &i);
+	const int	words = ft_count(src, sep);
 	int			len;
 
+	i = 0;
 	if (!src)
 		return (NULL);
-	new = ft_calloc(sizeof(char *), (words + 1));
-	if (!new)
+	splitd = ft_calloc(sizeof(char *), words + 1);
+	if (!splitd)
 		return (NULL);
 	while (i < words)
 	{
@@ -50,11 +52,9 @@ char	**ft_split(char const *src, char sep)
 			len = ft_strchr(src, sep) - src;
 		else
 			len = ft_strlen(src);
-		new[i] = ft_substr(src, 0, len);
-		if (!new[i])
-			return (0);
+		splitd[i] = ft_substr(src, 0, len);
 		src += len;
 		i++;
 	}
-	return (new);
+	return (splitd);
 }
